@@ -43,6 +43,7 @@ import com.github.tvbox.osc.server.ControlManager;
 import com.github.tvbox.osc.ui.adapter.HomePageAdapter;
 import com.github.tvbox.osc.ui.adapter.SelectDialogAdapter;
 import com.github.tvbox.osc.ui.adapter.SortAdapter;
+import com.github.tvbox.osc.ui.dialog.FamilySourceDialog;
 import com.github.tvbox.osc.ui.dialog.SelectDialog;
 import com.github.tvbox.osc.ui.dialog.TipDialog;
 import com.github.tvbox.osc.ui.fragment.GridFragment;
@@ -85,6 +86,7 @@ public class HomeActivity extends BaseActivity {
     private LinearLayout contentLayout;
     private TextView tvDate;
     private TextView tvName;
+    private TextView tvFamily;
     private TvRecyclerView mGridView;
     private NoScrollViewPager mViewPager;
     private SourceViewModel sourceViewModel;
@@ -172,6 +174,7 @@ public class HomeActivity extends BaseActivity {
         this.topLayout = findViewById(R.id.topLayout);
         this.tvDate = findViewById(R.id.tvDate);
         this.tvName = findViewById(R.id.tvName);
+        this.tvFamily = findViewById(R.id.tvFamily);
         this.contentLayout = findViewById(R.id.contentLayout);
         this.mGridView = findViewById(R.id.mGridView);
         this.mViewPager = findViewById(R.id.mViewPager);
@@ -310,6 +313,15 @@ public class HomeActivity extends BaseActivity {
                 return true;
             }
         });
+        if (tvFamily != null) {
+            tvFamily.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    FastClickCheckUtil.check(v);
+                    new FamilySourceDialog(HomeActivity.this).show();
+                }
+            });
+        }
         setLoadSir(this.contentLayout);
         //mHandler.postDelayed(mFindFocus, 500);
     }
@@ -459,7 +471,7 @@ public class HomeActivity extends BaseActivity {
                             return;
                         }
                         if (mConfigErrorDialog == null)
-                            mConfigErrorDialog = new TipDialog(HomeActivity.this, msg, "重试", "取消", new TipDialog.OnListener() {
+                            mConfigErrorDialog = new TipDialog(HomeActivity.this, msg, "重试", "换源", new TipDialog.OnListener() {
                                 @Override
                                 public void left() {
                                     mHandler.post(new Runnable() {
@@ -473,13 +485,11 @@ public class HomeActivity extends BaseActivity {
 
                                 @Override
                                 public void right() {
-                                    dataInitOk = true;
-                                    jarInitOk = true;
                                     mHandler.post(new Runnable() {
                                         @Override
                                         public void run() {
                                             dismissConfigErrorDialog();
-                                            initData();
+                                            new FamilySourceDialog(HomeActivity.this).show();
                                         }
                                     });
                                 }

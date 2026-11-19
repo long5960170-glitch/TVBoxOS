@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="@dimen/vs_600"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/shape_danmu_setting_bg"
+        android:orientation="vertical"
+        android:padding="@dimen/vs_30">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="修改家庭配置地址"
+            android:textColor="@color/dialog_text_primary"
+            android:textSize="@dimen/ts_30"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/vs_10"
+            android:text="局域网 NAS（HTTP 配置地址）"
+            android:textColor="@color/dialog_text_hint"
+            android:textSize="@dimen/ts_22" />
+
+        <EditText
+            android:id="@+id/inputNas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/vs_6"
+            android:layout_marginBottom="@dimen/vs_12"
+            android:background="@drawable/input_dialog_api_input"
+            android:hint="例如 http://192.168.1.10:5244/tvbox/my.json"
+            android:imeOptions="actionNext|flagNoExtractUi"
+            android:inputType="textUri"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/vs_10"
+            android:paddingTop="@dimen/vs_10"
+            android:paddingRight="@dimen/vs_10"
+            android:paddingBottom="@dimen/vs_10"
+            android:singleLine="true"
+            android:textColor="@color/dialog_text_primary"
+            android:textColorHint="@color/dialog_text_hint"
+            android:textSize="@dimen/ts_24" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="电脑管家（电脑开着时使用）"
+            android:textColor="@color/dialog_text_hint"
+            android:textSize="@dimen/ts_22" />
+
+        <EditText
+            android:id="@+id/inputPc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/vs_6"
+            android:layout_marginBottom="@dimen/vs_12"
+            android:background="@drawable/input_dialog_api_input"
+            android:hint="例如 http://192.168.100.100:8899/c/default.json"
+            android:imeOptions="actionDone|flagNoExtractUi"
+            android:inputType="textUri"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/vs_10"
+            android:paddingTop="@dimen/vs_10"
+            android:paddingRight="@dimen/vs_10"
+            android:paddingBottom="@dimen/vs_10"
+            android:singleLine="true"
+            android:textColor="@color/dialog_text_primary"
+            android:textColorHint="@color/dialog_text_hint"
+            android:textSize="@dimen/ts_24" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/vs_15"
+            android:text="留空表示不使用这个来源。NAS 需开启 HTTP 文件服务或 Alist，不能填 SMB 共享路径。"
+            android:textColor="@color/dialog_text_hint"
+            android:textSize="@dimen/ts_20" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/btnEditCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/vs_10"
+                android:background="@drawable/button_danmu_setting"
+                android:focusable="true"
+                android:gravity="center"
+                android:paddingLeft="@dimen/vs_30"
+                android:paddingTop="@dimen/vs_10"
+                android:paddingRight="@dimen/vs_30"
+                android:paddingBottom="@dimen/vs_10"
+                android:text="取消"
+                android:textColor="@color/dialog_text_primary"
+                android:textSize="@dimen/ts_22" />
+
+            <TextView
+                android:id="@+id/btnEditSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_danmu_setting"
+                android:focusable="true"
+                android:gravity="center"
+                android:paddingLeft="@dimen/vs_30"
+                android:paddingTop="@dimen/vs_10"
+                android:paddingRight="@dimen/vs_30"
+                android:paddingBottom="@dimen/vs_10"
+                android:text="保存"
+                android:textColor="@color/dialog_text_primary"
+                android:textSize="@dimen/ts_22" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>
